@@ -4,6 +4,6 @@ jobs:
   getInfoJob:
     runs-on: ubuntu-latest
     steps:
-      -name: Get github context info step
-      run:  "echo ${{toJson(github)}}"
+      - name: Get github context info step
+        run:  "echo ${{toJson(github)}}"
 

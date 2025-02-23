@@ -2,25 +2,31 @@ name: Test project
 on: push
 jobs:
   testJob:
-
     runs-on: ubuntu-latest
-
     steps:
-
       - name: Get code
         uses: actions/checkout@v3
-
       - name: Install nodeJs
         uses: actions/setup-node@v3
         with:
           node-version: 18
-
       - name: Install dependencies
         run: npm ci
-
       - name: Run tests
         run: npm test
-
+  deploymentJob:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install nodeJs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Build project
+        run: npm build
 
 
 

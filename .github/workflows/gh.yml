@@ -1,0 +1,44 @@
+name: Deploy Report to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Generate Report
+        run: |
+          # Add your commands to generate the report here
+          # For example: ./generate-report.sh
+
+      - name: Print working directory
+        run: pwd  # Print the current working directory for debugging
+
+      - name: List target directory
+        run: ls -la ./target  # List contents of the target directory for debugging
+
+      - name: Upload Report Artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./target/Common*.html  # Specify the target folder with the wildcard pattern
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4.0.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages

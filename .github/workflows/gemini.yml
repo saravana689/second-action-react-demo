@@ -37,7 +37,7 @@ jobs:
           mkdir myreport
           ls -la
           cp -r ./target myreport
-          ls -la ./target/myreport
+          ls -la ./myreport/target
           
 
       - name: Upload Artifact

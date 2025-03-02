@@ -32,6 +32,7 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Upload Artifact
+        run: pwd  # Print the current working directory for debuggi
         uses: actions/upload-pages-artifact@v3
         with:
           path: './target' # Replace with the actual path

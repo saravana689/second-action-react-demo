@@ -32,12 +32,18 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Get pwd
-        run: pwd  # Print the current working directory for debuggi
+        run: |
+          pwd  # Print the current working directory for debuggi
+          mkdir myreport
+          ls -la
+          cp -r ./target myreport
+          ls -la ./target/myreport
+          
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './target' # Replace with the actual path
+          path: './myreport/target' # Replace with the actual path
 
       - name: Deploy to GitHub Pages
         id: deployment

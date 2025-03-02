@@ -1,0 +1,35 @@
+name: Deploy Reports to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master # Or whatever branch you want to trigger on
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Reports
+        # Add your commands to run your report generation script here
+        run: |
+          # Example: python generate_reports.py
+          echo "Generating reports..."
+          # your report generation commands.
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './target' # Replace with the actual path
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

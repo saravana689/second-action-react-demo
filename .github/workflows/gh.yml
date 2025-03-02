@@ -2,6 +2,9 @@ name: Deploy Report to GitHub Pages
 
 on: [push, workflow_dispatch ]
 
+permissions:
+  contents: write
+  id-token: write
 
 jobs:
   build:

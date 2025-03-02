@@ -27,7 +27,7 @@ jobs:
       - name: Upload Report Artifact
         uses: actions/upload-pages-artifact@v3.0.1
         with:
-          path: target/CommonReport123.html  # Specify the target folder with the wildcard pattern
+          path: ./target  # Specify the target folder with the wildcard pattern
 
   deploy:
     needs: build

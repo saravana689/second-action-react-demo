@@ -7,9 +7,15 @@ on:
 
   workflow_dispatch:
 
+permissions:
+  contents: write
+  id-token: write
+  pages: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment: github-pages
 
     steps:
       - name: Checkout Repository

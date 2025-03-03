@@ -36,7 +36,7 @@ jobs:
           pwd  # Print the current working directory for debuggi
           #mkdir myreport
           ls -la
-          mv 'target/Common*.html' index.html
+          mv Common*.html index.html
           ls -la ./target
         working-directory: ./target
 

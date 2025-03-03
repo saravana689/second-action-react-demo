@@ -35,9 +35,8 @@ jobs:
         run: |
           pwd  # Print the current working directory for debuggi
           #mkdir myreport
-          ls -la
           mv Common*.html index.html
-          ls -la ./target
+          ls -la
         working-directory: ./target
 
       - name: Upload Artifact

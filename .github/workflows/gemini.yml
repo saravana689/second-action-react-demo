@@ -31,13 +31,16 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Get pwd
+      - name: Rename file
         run: |
           pwd  # Print the current working directory for debuggi
           #mkdir myreport
           mv Common*.html index.html
           ls -la
         working-directory: ./target
+        
+      - name: Get pwd
+        run: pwd
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3

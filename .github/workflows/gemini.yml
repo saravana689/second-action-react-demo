@@ -7,10 +7,10 @@ on:
 
   workflow_dispatch:
 
-#permissions:
-#  contents: write
-#  id-token: write
-#  pages: write
+permissions:
+  contents: write
+  id-token: write
+  pages: write
 
 jobs:
   deploy:
